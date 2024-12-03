@@ -1,0 +1,37 @@
+.integration-list {
+    width: 50%;
+    display: none;
+}
+
+.payment-methods {
+    border: 2px solid gray;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.disabled-item {
+    opacity: 0.6;
+}
+
+#checkout-button {
+    margin: auto;
+    text-align: center;
+
+    button {
+        width: fit-content;
+        padding: 5px 12px;
+    }
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.example-headers-align .mat-mdc-form-field+.mat-mdc-form-field {
+    margin-left: 8px;
+}
+
+::ng-deep.mat-mdc-card-header-text {
+    width: 100%;
+}

@@ -1,0 +1,46 @@
+<div class="main-container">
+  <section class="cart full-width">
+    <h1>Cart</h1>
+    <div class="order-summary">
+      <ul class="order-summary-list">
+        <li *ngFor="let item of cartItems" class="order-summary-list-list-item">
+          <img [src]="'../../assets/images/' + item.img" class="order-summary-list-list-item-image" [alt]="item.label">
+          <p class="order-summary-list-list-item-title">{{item.label}}</p>
+          <p class="order-summary-list-list-item-price">€{{item.price}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="cart-footer"><span class="cart-footer-label">Total:</span>
+      <span class="cart-footer-amount">€10.00</span>
+    </div>
+  </section>  
+
+    <mat-card class="full-width payment-methods">
+      <mat-card-header>
+        <mat-card-title style="display: flex; justify-content: space-between;">
+          <h3>Choose payment method</h3>
+          <div id="checkout-button">
+            <a routerLink="/checkout" [queryParams]="{type: selectedMethod()}">
+              <button class="button" [disabled]="!selectedMethod()">Continue to checkout</button>
+            </a>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+    
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let paymethod of payMethods; index as i" [expanded]="step() === i"
+            (opened)="setActive(i, paymethod.method, paymethod.disabled)" (closed)="refreshStep(i)" hideToggle
+            [ngClass]="{'disabled-item': paymethod.disabled === true }">
+            <mat-expansion-panel-header>
+              <mat-radio-button [disabled]="paymethod.disabled" [checked]="step() === i"></mat-radio-button>
+              <mat-panel-title>{{paymethod.title}}</mat-panel-title>
+              <mat-panel-description> {{paymethod.header}} </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p *ngIf="!paymethod.disabled">{{paymethod.description}}</p>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-card-content>
+    </mat-card>
+
+  </div>

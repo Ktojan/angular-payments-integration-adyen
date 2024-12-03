@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" 
+    directory: "/checkout" 
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "npm" 
+    directory: "/node-api" 
+    schedule:
+      interval: "weekly"

@@ -1,0 +1,102 @@
+<mat-grid-list cols="5" rowHeight="150px" class="grid-content">
+  <mat-grid-tile [colspan]="2" [rowspan]="5">
+  <div class="payment-container">
+    <div #hook id="{{ type }}" class="payment"></div>
+  </div></mat-grid-tile>
+
+  <mat-grid-tile [colspan]="3" [rowspan]="5"  [ngSwitch]="type">
+
+      <mat-card *ngSwitchCase="'card'">
+        <mat-card-header>
+          <mat-card-title>Test Adyen Data: cards</mat-card-title>
+      </mat-card-header>
+        <mat-card-content style="padding: 2rem;">      
+          <p>Some cards may request additional info like 'password', hints will be provided.</p>
+          <p>For all the cards <b>CCV is 737</b></p>
+      
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="System">
+              <th mat-header-cell *matHeaderCellDef> System </th>
+              <td mat-cell *matCellDef="let element"> {{element.System}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="CardType">
+              <th mat-header-cell *matHeaderCellDef> Card Type </th>
+              <td mat-cell *matCellDef="let element"> {{element.CardType}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="CardNumber">
+              <th mat-header-cell *matHeaderCellDef> Card Number </th>
+              <td mat-cell *matCellDef="let element"> {{element.CardNumber}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="Expiry">
+              <th mat-header-cell *matHeaderCellDef> Expiry Date</th>
+              <td mat-cell *matCellDef="let element"> {{element.Expiry}} </td>
+            </ng-container>
+      
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+
+    <div *ngSwitchCase="'sepadirectdebit'">
+      <mat-card>
+        <mat-card-header>
+            <mat-card-title>Test Adyen Data: SEPA Direct Debit accounts</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <hr>
+          <mat-list>
+            <mat-list-item>
+              <span matListItemTitle>Account Name</span>
+              <span matListItemLine>A. Klaassen</span>
+              <span matListItemLine>B. Klaassen</span>
+              <span matListItemLine>C. Klaassen</span>
+            </mat-list-item>
+            <p></p>
+            <mat-list-item>
+              <span matListItemTitle>IBAN</span>
+              <span matListItemLine>NL13TEST0123456789</span>
+              <span matListItemLine>NL36TEST0236169114</span>
+              <span matListItemLine>NL26TEST0336169116</span>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div *ngSwitchCase="'ach'">
+      <mat-card>
+        <mat-card-header>
+            <mat-card-title>Test Adyen Data: ACH</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <hr>
+          <mat-list>
+            <mat-list-item>
+              <span matListItemTitle>Bank account number</span>
+              <span matListItemLine>Any correctly formatted account number. Example: 123456789</span>
+            </mat-list-item>
+            <p></p>
+            <mat-list-item>
+              <span matListItemTitle>Bank routing number</span>
+              <span matListItemLine>011000138</span>
+              <span matListItemLine>121000358</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Account Owner's Address</span>
+              <span matListItemLine>Any correctly formatted US address.</span>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div *ngSwitchDefault>No test data provided</div>
+
+  </mat-grid-tile>
+
+
+</mat-grid-list>

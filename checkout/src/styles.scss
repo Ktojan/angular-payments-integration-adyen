@@ -1,0 +1,303 @@
+@use "@angular/material" as mat;
+@include mat.core();
+@import "@adyen/adyen-web/dist/adyen.css";
+
+/* General page body */
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  font-family: 'Roboto', "Helvetica Neue", sans-serif;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+a,
+u {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.full-width { 
+  width: 100%;
+}
+
+#header {
+  height: auto;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  padding: 0 28px;
+  background: #00112C;
+  text-align: start;
+  width: 100%;
+  z-index: 2;
+  color:#e6e9eb;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+
+.button {
+  background: #00112c;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 500;
+  margin: 0;
+  padding: 15px;
+  text-align: center;
+  transition: background 0.3s ease-out, box-shadow 0.3s ease-out;
+  width: 100%;
+}
+
+.button:hover {
+  background: #1c3045;
+  box-shadow: 0 3px 4px rgba(0, 15, 45, 0.2);
+}
+
+.button:active {
+  background: #3a4a5c;
+}
+
+.button:disabled {
+  background: lightgray;
+  box-shadow: none;
+  cursor: not-allowed;
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+/* end General page body */
+
+/* Index page */
+
+.main-container {
+  margin: auto;
+  margin-top: 90px;
+  max-width: 95vw;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 5%;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info {
+  margin-top: 10%;
+  color: #00112c;
+}
+
+/* end Index page */
+
+
+.order-summary-list {
+  border-top: 1px solid #00112C;
+}
+.order-summary-list-list-item {
+  border-bottom: 3px solid #00112C;
+  display: flex;
+  justify-content: space-between;
+  height: 150px;
+  padding: 5px 0;
+}
+.order-summary-list-list-item-image {
+  height: 90%;
+  margin: 2%;
+  border-radius: 8px;
+}
+.order-summary-list-list-item-title {
+  font-weight: 700;
+  margin: auto;
+}
+.order-summary-list-list-item-price {
+  color: #00112C;
+  margin: auto 16px;
+  text-align: right;
+  width: 80px;
+  font-size: large;
+}
+@media (min-width: 768px) {
+  .order-summary-list-list-item-price {
+    margin-left: 24px;
+    margin-bottom: auto;
+    margin-right: 24px;
+    margin-top: auto;
+  }
+}
+.order-summary-list-list-item-remove-product {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  height: 25px;
+  margin: auto 0;
+  padding: 0;
+  width: 25px;
+}
+.cart {
+  text-align: center;
+}
+.cart-footer {
+  font-weight: 700;
+  margin-top: 17px;
+  text-align: right;
+}
+@media (min-width: 768px) {
+  .cart-footer {
+    margin-top: 24px;
+  }
+}
+.cart-footer .button {
+  margin-top: 30px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .cart-footer .button {
+    margin-top: 0;
+    width: 288px;
+  }
+}
+.cart-footer-amount {
+  margin-left: 16px;
+  margin-right: 24px;
+}
+.whole-preview {
+  margin: auto;
+  max-width: 1110px;
+  padding: 0 16px;
+}
+@media (min-width: 1440px) {
+  .whole-preview {
+    padding-left: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-top: 0;
+  }
+}
+
+/* end of Cart preview page */
+
+/* Payment page */
+
+#payment-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#payment-page .container {
+  margin-top: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1110px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.checkout-component {
+  background: #f7f8f9;
+  border: 1px solid #e6e9eb;
+  border-radius: 12px;
+  margin: 8px 0;
+}
+
+/* Adyen Components */
+.payment {
+  width: 100%;
+  padding-top: 0px !important;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 1076px) {
+  #payment-page .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .payment {
+    align-self: center;
+  }
+}
+
+.payment-container {
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  background: #f7f8f9;
+  border: 1px solid #e6e9eb;
+  border-radius: 12px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  width: 100%;
+  height: 100%;
+}
+
+/* end Payments page */
+
+
+/* Status page */
+
+.status-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status {
+  margin: 100px 0 126px;
+  text-align: center;
+}
+
+.status .status-image {
+  display: block;
+  height: 100px;
+  margin: 16px auto 0;
+}
+
+.status .status-image-thank-you {
+  height: 66px;
+}
+
+.status .status-message {
+  margin: 8px 0 24px;
+}
+
+.status .button {
+  max-width: 236px;
+}
+
+@media (min-width: 768px) {
+  .status .button {
+    max-width: 200px;
+  }
+}
+
+/* end Status page */
