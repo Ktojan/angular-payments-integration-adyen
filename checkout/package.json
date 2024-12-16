@@ -32,7 +32,7 @@
     "path-parse": "^1.0.7",
     "rxjs": "~6.6.0",
     "tar": "^6.2.1",
-    "tslib": "^2.0.0"
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~18.2.2",
